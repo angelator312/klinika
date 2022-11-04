@@ -5,7 +5,7 @@ const { Filestore } = require('./jsonwjs')
 const chasove = new Filestore('chasove.json')
 const app = express();
 const templatePath = path.join(__dirname, 'views');
-const port = 8080;
+const port = process.env.PORT ?? 8080;
 function breakdate(data) {
     return {
         year: data.getFullYear(),
