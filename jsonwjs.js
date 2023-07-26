@@ -8,8 +8,7 @@ class Filestore {
     } catch (err) {
       if (err.code == "ENOENT") {
         this.write({}).then(() => console.log("new chasove"));
-      }
-      throw err;
+      } else throw err;
     }
   }
   async write(obj) {
