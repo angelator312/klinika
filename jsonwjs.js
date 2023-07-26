@@ -7,12 +7,12 @@ class Filestore {
       fss.statSync(this.file);
     } catch (err) {
       if (err.code == "ENOENT") {
-        this.write({});
+        this.write({}).then(() => console.log("new chasove"));
       }
       throw err;
     }
   }
-  write(obj) {
+  async write(obj) {
     return fs.writeFile(this.file, JSON.stringify(obj, null, 2));
   }
   async read() {
